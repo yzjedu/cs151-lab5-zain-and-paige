@@ -7,3 +7,15 @@
 # deposit, if user has a coupon
 # Data Out: account balance, and errors
 # Credits: class resources
+
+initial_balance = 1000
+SENTINEL = 'e'
+
+options = input('Do you want to withdraw, deposit, view balance, or exit')
+options = options.lower()
+while options != SENTINEL:
+    if options == "w":
+        withdraw_amount = int(input('Enter amount to withdraw: '))
+        if withdraw_amount > 0:
+            print("Cant input negative amount, try again.")
+        elif initial_balance -= withdraw_amount:
