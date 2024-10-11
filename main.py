@@ -10,12 +10,31 @@
 
 initial_balance = 1000
 SENTINEL = 'e'
+new_balance = 0
+options =
 
-options = input('Do you want to withdraw, deposit, view balance, or exit')
-options = options.lower()
 while options != SENTINEL:
+    options = input('Do you want to withdraw, deposit, view balance, or exit?')
+    options = options.lower()
     if options == "w":
         withdraw_amount = int(input('Enter amount to withdraw: '))
-        if withdraw_amount > 0:
+        if withdraw_amount < 0:
             print("Cant input negative amount, try again.")
-        elif initial_balance -= withdraw_amount:
+        else:
+            new_balance = initial_balance - withdraw_amount
+            print('Your new balance is', new_balance)
+        if new_balance < 0:
+            print("Warning: You will be charged 5% interest for going under $0.")
+    elif options == 'd':
+        deposit_amount = int(input('Enter amount to deposit: '))
+        if deposit_amount < 0:
+            print("Cant input negative amount, try again.")
+        elif new_balance == deposit_amount + initial_balance:
+            print(new_balance)
+    elif options == 'v':
+        print(new_balance)
+
+
+
+
+
