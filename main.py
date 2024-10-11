@@ -11,7 +11,6 @@
 initial_balance = 1000
 SENTINEL = 'e'
 new_balance = 0
-options =
 
 while options != SENTINEL:
     options = input('Do you want to withdraw, deposit, view balance, or exit?')
